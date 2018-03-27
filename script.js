@@ -16,6 +16,7 @@ var btnClick = function () {
     var r= $("#rate option:selected").text();
     addBeer(n, c, r);
     renderBeers();
+    $(".beers-list-sort").find("li").remove();
 }
 
 $(".post-beer").click(btnClick);
@@ -29,3 +30,66 @@ var renderBeers = function () {
     
 }
 
+var bool=false;
+
+var sortASC=function sortByKey(a, b) {
+
+    $(".beers-list-sort").find("li").remove();
+    if (!bool)
+ {   beers= beers.sort(function(a, b) {
+        var x = a["myRate"]; var y = b["myRate"];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+
+    $(".beers-list-sort").find("li").remove();
+    bool=true;
+
+ }
+
+ else 
+      {
+        $(".beers-list-sort").find("li").remove();
+          beers.reverse();
+          bool=false;
+        }
+
+
+    for (var b in beers)
+        $('.beers-list-sort').append('<li>' + "name: "+beers[b].myName + " ,category: " + beers[b].myCategory + ",rate: "+beers[b].myRate+'</li>');
+
+}
+
+
+$("#sortBtn").click(sortASC);
+
+
+
+
+
+
+
+
+// var sortA= function(){
+//     var sortArray=[];
+//           beers = _.sortBy(beers,myRate);
+//           for (var b in beers)
+//                $('.beers-list-sort').append('<li>' + "name: "+beers[b].myName + " ,category: " + beers[b].myCategory + ",rate: "+beers[b].myRate+'</li>');
+      
+//      }
+
+
+// function compare(a, b) {
+//     const genreA = a.myRate.toUpperCase();
+//     const genreB = b.myRate.toUpperCase();
+    
+//     let comparison = 0;
+//     if (genreA > genreB) {
+//       comparison = 1;
+//     } else if (genreA < genreB) {
+//       comparison = -1;
+//     }
+//     return comparison;
+//   }
+  
+//   console.log(beers.sort(compare));
+  
