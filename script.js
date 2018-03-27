@@ -41,6 +41,7 @@ var sortASC=function sortByKey(a, b) {
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
 
+    $("#sortBtn").text('Sort By DES');
     $(".beers-list-sort").find("li").remove();
     bool=true;
 
@@ -49,6 +50,7 @@ var sortASC=function sortByKey(a, b) {
  else 
       {
         $(".beers-list-sort").find("li").remove();
+        $("#sortBtn").text('Sort By ASC');
           beers.reverse();
           bool=false;
         }
