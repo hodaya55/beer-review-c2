@@ -24,6 +24,7 @@ $(".post-beer").click(btnClick);
 
 var renderBeers = function () {
     $(".beers-list").find("li").remove();
+    $(".beers-list-sort").find("li").remove();
 
     for (var b in beers)
         $('.beers-list').append('<li>' + "name: "+beers[b].myName + " ,category: " + beers[b].myCategory + ",rate: "+beers[b].myRate+'</li>');
@@ -35,14 +36,22 @@ var bool=false;
 var sortASC=function sortByKey(a, b) {
 
     $(".beers-list-sort").find("li").remove();
-    if (!bool)
- {   beers= beers.sort(function(a, b) {
+
+    beers= beers.sort(function(a, b) {
         var x = a["myRate"]; var y = b["myRate"];
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
 
-    $("#sortBtn").text('Sort By DES');
+
+    if (!bool)
+ {  
+    //   beers= beers.sort(function(a, b) {
+    //     var x = a["myRate"]; var y = b["myRate"];
+    //     return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    // });
+
     $(".beers-list-sort").find("li").remove();
+    $("#sortBtn").text('Sort By DES');
     bool=true;
 
  }
@@ -55,7 +64,7 @@ var sortASC=function sortByKey(a, b) {
           bool=false;
         }
 
-
+        $(".beers-list-sort").find("li").remove();
     for (var b in beers)
         $('.beers-list-sort').append('<li>' + "name: "+beers[b].myName + " ,category: " + beers[b].myCategory + ",rate: "+beers[b].myRate+'</li>');
 
