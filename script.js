@@ -19,7 +19,7 @@ var btnClick = function () {
     // $(".beers-list-sort").find("li").remove();
 }
 
-$(".post-beer").click(btnClick);
+//$(".post-beer").click(btnClick);
 
 
 var renderBeers = function () {
@@ -63,6 +63,92 @@ var sortASC = function sortByKey(a, b) {
 
 
 $("#sortBtn").click(sortASC);
+
+/*
+var BeerReviewApp =function(){
+    return {
+        addBeer: addBeer,
+        renderBeers: renderBeers
+    }
+};
+
+var app = BeerReviewApp();
+
+$(".post-beer").on('click', function(){
+    var n = $(".beer-input.form-control").val();
+    var c = $(".category-input.form-control").val();
+    var r = $("#rate option:selected").text();
+    app.addBeer(n, c, r);
+    app.renderBeers();
+});
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
